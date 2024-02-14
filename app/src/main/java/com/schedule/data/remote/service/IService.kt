@@ -5,7 +5,7 @@ import retrofit2.http.Path
 
 interface IService {
     @GET("/api/{entity}")
-    suspend fun<T> getList(@Path("entity") path: String): List<T>
+    suspend fun<T> getList(@Path("entity") path: String): List<T>?
     companion object {
         const val BASE_URL = "http://ipv4:5141"
     }
