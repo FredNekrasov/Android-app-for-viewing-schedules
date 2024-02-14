@@ -13,6 +13,6 @@ interface IUserDao {
     suspend fun insertRecord(user: User)
     @Query("SELECT * FROM User")
     suspend fun getAll(): List<User>
-    @Delete
-    suspend fun deleteRecord(user: User)
+    @Query("DELETE FROM User")
+    suspend fun deleteAll()
 }
