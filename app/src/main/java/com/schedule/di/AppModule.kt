@@ -17,7 +17,7 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideMainDB(app: Application) = Room.databaseBuilder(app, MainDB::class.java, MainDB.DB_NAME)
+    fun provideMainDB(app: Application): MainDB = Room.databaseBuilder(app, MainDB::class.java, MainDB.DB_NAME)
         .allowMainThreadQueries()
         .build()
 
