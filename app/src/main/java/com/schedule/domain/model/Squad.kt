@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Squad(
     val groupNumber: String,
-    val shortNumber: String,
+    val shortGroupNumber: String,
     val studentNumber: Int,
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null

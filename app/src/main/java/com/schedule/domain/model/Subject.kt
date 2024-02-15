@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Subject(
     val subjectName: String,
     val lectureHours: Int,
-    val practicHours: Int,
+    val practiceHours: Int,
     val totalHours: Int,
     val consultationHours: Int,
     val typeOfCertification: String,
