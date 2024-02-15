@@ -44,8 +44,10 @@ import com.schedule.ui.presentation.data_list.user.view_model.UserVM
 import com.schedule.ui.theme.ScheduleAppTheme
 import com.schedule.ui.utils.navigation.ScreensRoute
 import com.schedule.ui.utils.navigation.getNavItems
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val userVM by viewModels<UserVM>()
     private val array = getNavItems()

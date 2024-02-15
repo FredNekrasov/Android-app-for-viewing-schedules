@@ -21,7 +21,7 @@ class TeacherUseCase @Inject constructor(
         val list = repository.getAllData()
         val data = MutableStateFlow(Pair(LOADING,list))
         try {
-            val entityList = api.getList<TeacherDto>("teachers")?.map { it.toEntity() }
+            val entityList = api.getList<TeacherDto>("teacher")?.map { it.toEntity() }
             if(entityList == null) data.emit(Pair(ConnectionType.NO_DATA, list)) else {
                 repository.deleteAllData()
                 entityList.forEach { repository.insertRecord(it) }

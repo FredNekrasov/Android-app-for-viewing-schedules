@@ -21,7 +21,7 @@ class UserUseCase @Inject constructor(private val api: IService, private val rep
         val user = repository.getAllData().firstOrNull { it.userName == userName && it.password == password }
         val data = MutableStateFlow(Pair(LOADING,user))
         try {
-            val new = api.getList<UserDto>("users")?.find { userName == it.userName && password == it.password }
+            val new = api.getList<UserDto>("user")?.find { userName == it.userName && password == it.password }
             if(new == null) data.emit(Pair(ConnectionType.NO_DATA, null)) else {
                 repository.deleteAllData()
                 repository.insertRecord(new.toEntity())
