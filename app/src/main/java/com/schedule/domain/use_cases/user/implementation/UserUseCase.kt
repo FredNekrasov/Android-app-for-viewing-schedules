@@ -14,14 +14,14 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class UserUseCase @Inject constructor(private val api: IService, private val repository: IRepository<User>) : IUserUseCase {
+class UserUseCase @Inject constructor(private val api: IService<UserDto>, private val repository: IRepository<User>) : IUserUseCase {
     override suspend fun authorization(
         userName: String, password: String
     ): StateFlow<Pair<ConnectionType, User?>> {
         val user = repository.getAllData().firstOrNull { it.userName == userName && it.password == password }
         val data = MutableStateFlow(Pair(LOADING,user))
         try {
-            val new = api.getList<UserDto>("user")?.find { userName == it.userName && password == it.password }
+            val new = api.getList("user")?.find { userName == it.userName && password == it.password }
             if(new == null) data.emit(Pair(ConnectionType.NO_DATA, null)) else {
                 repository.deleteAllData()
                 repository.insertRecord(new.toEntity())

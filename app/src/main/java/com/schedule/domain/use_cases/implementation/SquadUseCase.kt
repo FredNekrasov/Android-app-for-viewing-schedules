@@ -15,13 +15,13 @@ import java.io.IOException
 import javax.inject.Inject
 
 class SquadUseCase @Inject constructor(
-    private val api: IService,private val repository: IRepository<Squad>
+    private val api: IService<SquadDto>, private val repository: IRepository<Squad>
 ) : IUseCase<Squad> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Squad>>> {
         val list = repository.getAllData()
         val data = MutableStateFlow(Pair(LOADING,list))
         try {
-            val entityList = api.getList<SquadDto>("groups")?.map { it.toEntity() }
+            val entityList = api.getList("groups")?.map { it.toEntity() }
             if(entityList == null) data.emit(Pair(ConnectionType.NO_DATA, list)) else {
                 repository.deleteAllData()
                 entityList.forEach { repository.insertRecord(it) }
