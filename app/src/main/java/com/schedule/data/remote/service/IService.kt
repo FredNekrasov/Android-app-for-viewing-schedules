@@ -3,10 +3,10 @@ package com.schedule.data.remote.service
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface IService {
+interface IService<T> {
     @GET("/api/{entity}")
-    suspend fun<T> getList(@Path("entity") path: String): List<T>?
+    suspend fun getList(@Path("entity") path: String): List<T>?
     companion object {
-        const val BASE_URL = "http://ipv4:5141"
+        const val BASE_URL = "http://192.168.1.231:5141"
     }
 }
