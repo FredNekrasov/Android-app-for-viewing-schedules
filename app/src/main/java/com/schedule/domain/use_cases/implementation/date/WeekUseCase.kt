@@ -2,8 +2,8 @@ package com.schedule.domain.use_cases.implementation.date
 
 import com.schedule.data.remote.dtos.date.WeekDto
 import com.schedule.data.remote.service.IService
-import com.schedule.data.repositories.date.WeekRepository
 import com.schedule.domain.model.date.Week
+import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.IUseCase
 import com.schedule.ui.utils.ConnectionType
 import com.schedule.ui.utils.ConnectionType.LOADING
@@ -15,7 +15,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 class WeekUseCase @Inject constructor(
-    private val api: IService, private val repository: WeekRepository
+    private val api: IService, private val repository: IRepository<Week>
 ) : IUseCase<Week> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Week>>> {
         val list = repository.getAllData()

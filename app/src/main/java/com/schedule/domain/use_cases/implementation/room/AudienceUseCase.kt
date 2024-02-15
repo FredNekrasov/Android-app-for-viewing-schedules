@@ -2,8 +2,8 @@ package com.schedule.domain.use_cases.implementation.room
 
 import com.schedule.data.remote.dtos.room.AudienceDto
 import com.schedule.data.remote.service.IService
-import com.schedule.data.repositories.room.AudienceRepository
 import com.schedule.domain.model.room.Audience
+import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.IUseCase
 import com.schedule.ui.utils.ConnectionType
 import com.schedule.ui.utils.ConnectionType.LOADING
@@ -15,7 +15,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 class AudienceUseCase @Inject constructor(
-    private val api: IService, private val repository: AudienceRepository
+    private val api: IService,private val repository: IRepository<Audience>
 ) : IUseCase<Audience> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Audience>>> {
         val list = repository.getAllData()

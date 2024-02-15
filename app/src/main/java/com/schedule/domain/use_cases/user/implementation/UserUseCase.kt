@@ -2,8 +2,8 @@ package com.schedule.domain.use_cases.user.implementation
 
 import com.schedule.data.remote.dtos.UserDto
 import com.schedule.data.remote.service.IService
-import com.schedule.data.repositories.UserRepository
 import com.schedule.domain.model.User
+import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.user.IUserUseCase
 import com.schedule.ui.utils.ConnectionType
 import com.schedule.ui.utils.ConnectionType.LOADING
@@ -14,7 +14,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class UserUseCase @Inject constructor(private val api: IService, private val repository: UserRepository) : IUserUseCase {
+class UserUseCase @Inject constructor(private val api: IService, private val repository: IRepository<User>) : IUserUseCase {
     override suspend fun authorization(
         userName: String, password: String
     ): StateFlow<Pair<ConnectionType, User?>> {

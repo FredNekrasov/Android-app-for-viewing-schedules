@@ -2,8 +2,8 @@ package com.schedule.domain.use_cases.implementation
 
 import com.schedule.data.remote.dtos.SquadDto
 import com.schedule.data.remote.service.IService
-import com.schedule.data.repositories.SquadRepository
 import com.schedule.domain.model.Squad
+import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.IUseCase
 import com.schedule.ui.utils.ConnectionType
 import com.schedule.ui.utils.ConnectionType.LOADING
@@ -15,7 +15,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 class SquadUseCase @Inject constructor(
-    private val api: IService,private val repository: SquadRepository
+    private val api: IService,private val repository: IRepository<Squad>
 ) : IUseCase<Squad> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Squad>>> {
         val list = repository.getAllData()
