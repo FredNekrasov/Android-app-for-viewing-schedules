@@ -1,4 +1,4 @@
-package com.schedule.domain.use_cases.user.implementation
+package com.schedule.domain.use_cases.user
 
 import com.schedule.domain.model.User
 import com.schedule.ui.utils.ConnectionType
