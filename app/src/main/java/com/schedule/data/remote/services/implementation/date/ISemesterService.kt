@@ -1,9 +1,10 @@
 package com.schedule.data.remote.services.implementation.date
 
 import com.schedule.data.remote.dtos.date.SemesterDto
+import com.schedule.data.remote.services.IService
 import retrofit2.http.GET
 
-interface ISemesterService {
+interface ISemesterService : IService<SemesterDto> {
     @GET("/api/Semesters")
-    suspend fun getSemesters(): List<SemesterDto>?
+    override suspend fun getData(): List<SemesterDto>?
 }

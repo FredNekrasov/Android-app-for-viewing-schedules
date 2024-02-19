@@ -1,9 +1,10 @@
 package com.schedule.data.remote.services.implementation.date
 
 import com.schedule.data.remote.dtos.date.WeekDto
+import com.schedule.data.remote.services.IService
 import retrofit2.http.GET
 
-interface IWeekService {
+interface IWeekService : IService<WeekDto> {
     @GET("/api/Weeks")
-    suspend fun getWeeks(): List<WeekDto>?
+    override suspend fun getData(): List<WeekDto>?
 }
