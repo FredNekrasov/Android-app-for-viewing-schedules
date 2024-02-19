@@ -19,51 +19,54 @@ import com.schedule.data.remote.services.implementation.date.ISemesterService
 import com.schedule.data.remote.services.implementation.date.IWeekService
 import com.schedule.data.remote.services.implementation.room.IAudienceService
 import com.schedule.data.remote.services.implementation.room.IAudienceTypeService
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ServiceComponent
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Singleton
 
-@Module
-@InstallIn(ServiceComponent::class)
-object ServiceModule {
-    @Provides
-    @Singleton
-    fun provideUserService(): IService<UserDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(IUserService::class.java)
-    @Provides
-    @Singleton
-    fun provideTeacherService(): IService<TeacherDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(ITeacherService::class.java)
-    @Provides
-    @Singleton
-    fun provideSubjectService(): IService<SubjectDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(ISubjectService::class.java)
-    @Provides
-    @Singleton
-    fun provideGroupService(): IService<SquadDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(IGroupService::class.java)
-    @Provides
-    @Singleton
-    fun provideAudienceTypeService(): IService<AudienceTypeDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(IAudienceTypeService::class.java)
-    @Provides
-    @Singleton
-    fun provideAudienceService(): IService<AudienceDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(IAudienceService::class.java)
-    @Provides
-    @Singleton
-    fun provideSemesterService(): IService<SemesterDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(ISemesterService::class.java)
-    @Provides
-    @Singleton
-    fun provideWeekService(): IService<WeekDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(IWeekService::class.java)
-    @Provides
-    @Singleton
-    fun providePairService(): IService<PairDto> = Retrofit.Builder().baseUrl(IService.BaseUrl)
-        .addConverterFactory(MoshiConverterFactory.create()).build().create(IPairService::class.java)
+val serviceModule = module {
+    single<IService<UserDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(IUserService::class.java)
+    }
+    single<IService<TeacherDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(ITeacherService::class.java)
+    }
+    single<IService<SubjectDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(ISubjectService::class.java)
+    }
+    single<IService<SquadDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(IGroupService::class.java)
+    }
+    single<IService<AudienceTypeDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(IAudienceTypeService::class.java)
+    }
+    single<IService<AudienceDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(IAudienceService::class.java)
+    }
+    single<IService<SemesterDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(ISemesterService::class.java)
+    }
+    single<IService<WeekDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(IWeekService::class.java)
+    }
+    single<IService<PairDto>> {
+        Retrofit.Builder().baseUrl(IService.BaseUrl)
+            .addConverterFactory(MoshiConverterFactory.create()).build()
+            .create(IPairService::class.java)
+    }
 }
