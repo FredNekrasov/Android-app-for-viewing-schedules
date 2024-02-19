@@ -15,8 +15,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class Repository<T>(private val api: IService<T>) : IRepository<T> {
+class Repository<T> @Inject constructor(private val api: IService<T>) : IRepository<T> {
     override suspend fun getDTOList(): StateFlow<Pair<ConnectionType,List<T>>> {
         val data = MutableStateFlow(Pair(LOADING,emptyList<T>()))
         try {
