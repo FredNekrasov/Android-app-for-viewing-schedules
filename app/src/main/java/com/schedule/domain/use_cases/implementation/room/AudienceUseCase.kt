@@ -1,7 +1,6 @@
 package com.schedule.domain.use_cases.implementation.room
 
-import com.schedule.data.remote.dtos.room.AudienceDto
-import com.schedule.data.remote.service.IService
+import com.schedule.data.remote.services.room.IAudienceService
 import com.schedule.domain.model.room.Audience
 import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.IUseCase
@@ -15,13 +14,13 @@ import java.io.IOException
 import javax.inject.Inject
 
 class AudienceUseCase @Inject constructor(
-    private val api: IService<AudienceDto>, private val repository: IRepository<Audience>
+    private val api: IAudienceService, private val repository: IRepository<Audience>
 ) : IUseCase<Audience> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Audience>>> {
         val list = repository.getAllData()
         val data = MutableStateFlow(Pair(LOADING,list))
         try {
-            val entityList = api.getList("audiences")?.map { it.toEntity() }
+            val entityList = api.getAudiences()?.map { it.toEntity() }
             if(entityList == null) data.emit(Pair(ConnectionType.NO_DATA, list)) else {
                 repository.deleteAllData()
                 entityList.forEach { repository.insertRecord(it) }

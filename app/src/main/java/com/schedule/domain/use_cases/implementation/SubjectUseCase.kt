@@ -1,7 +1,6 @@
 package com.schedule.domain.use_cases.implementation
 
-import com.schedule.data.remote.dtos.SubjectDto
-import com.schedule.data.remote.service.IService
+import com.schedule.data.remote.services.ISubjectService
 import com.schedule.domain.model.Subject
 import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.IUseCase
@@ -15,13 +14,13 @@ import java.io.IOException
 import javax.inject.Inject
 
 class SubjectUseCase @Inject constructor(
-    private val api: IService<SubjectDto>, private val repository: IRepository<Subject>
+    private val api: ISubjectService, private val repository: IRepository<Subject>
 ) : IUseCase<Subject> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Subject>>> {
         val list = repository.getAllData()
         val data = MutableStateFlow(Pair(LOADING,list))
         try {
-            val entityList = api.getList("subjects")?.map { it.toEntity() }
+            val entityList = api.getSubjects()?.map { it.toEntity() }
             if(entityList == null) data.emit(Pair(ConnectionType.NO_DATA, list)) else {
                 repository.deleteAllData()
                 entityList.forEach { repository.insertRecord(it) }
