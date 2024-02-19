@@ -14,27 +14,9 @@ import java.io.IOException
 import javax.inject.Inject
 
 class SemesterUseCase @Inject constructor(
-    private val api: ISemesterService, private val repository: IRepository<Semester>
+    private val repository: IRepository<Semester>
 ) : IUseCase<Semester> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Semester>>> {
-        val list = repository.getAllData()
-        val data = MutableStateFlow(Pair(LOADING,list))
-        try {
-            val entityList = api.getSemesters()?.map { it.toEntity() }
-            if(entityList == null) data.emit(Pair(ConnectionType.NO_DATA, list)) else {
-                repository.deleteAllData()
-                entityList.forEach { repository.insertRecord(it) }
-                data.emit(Pair(ConnectionType.SUCCESS, repository.getAllData()))
-            }
-        } catch(ex: HttpException) {
-            data.emit(ConnectionType.CONNECTION_ERROR to list)
-        } catch(ex: JsonDataException) {
-            data.emit(ConnectionType.JSON_CONVERSION_ERROR to list)
-        } catch(ex: IOException) {
-            data.emit(ConnectionType.NO_INTERNET to list)
-        } catch(ex: Exception) {
-            data.emit(ConnectionType.UNKNOWN to list)
-        }
-        return data
+        TODO()
     }
 }
