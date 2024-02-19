@@ -7,9 +7,8 @@ import com.schedule.domain.use_cases.user.IUserUseCase
 import com.schedule.ui.utils.ConnectionType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import javax.inject.Inject
 
-class UserUseCase @Inject constructor(private val repository: IRepository<UserDto>) : IUserUseCase {
+class UserUseCase(private val repository: IRepository<UserDto>) : IUserUseCase {
     override suspend fun authorization(userName: String,password: String): StateFlow<Pair<ConnectionType, User?>> {
         val (connectionType, dtoList) = repository.getDTOList().value
         val userDto = dtoList.find { it.userName == userName && it.password == password }

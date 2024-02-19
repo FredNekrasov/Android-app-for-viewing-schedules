@@ -7,11 +7,8 @@ import com.schedule.domain.use_cases.IUseCase
 import com.schedule.ui.utils.ConnectionType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import javax.inject.Inject
 
-class WeekUseCase @Inject constructor(
-    private val repository: IRepository<WeekDto>
-) : IUseCase<Week> {
+class WeekUseCase(private val repository: IRepository<WeekDto>) : IUseCase<Week> {
     override suspend fun getList(): StateFlow<Pair<ConnectionType,List<Week>>> {
         val (connectionType, dtoList) = repository.getDTOList().value
         val list = dtoList.map { it.toEntity() }
