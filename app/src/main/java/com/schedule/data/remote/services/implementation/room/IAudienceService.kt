@@ -1,4 +1,4 @@
-package com.schedule.data.remote.services.room
+package com.schedule.data.remote.services.implementation.room
 
 import com.schedule.data.remote.dtos.room.AudienceDto
 import retrofit2.http.GET

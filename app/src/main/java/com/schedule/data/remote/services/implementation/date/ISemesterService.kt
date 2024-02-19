@@ -1,4 +1,4 @@
-package com.schedule.data.remote.services.date
+package com.schedule.data.remote.services.implementation.date
 
 import com.schedule.data.remote.dtos.date.SemesterDto
 import retrofit2.http.GET

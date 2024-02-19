@@ -1,4 +1,4 @@
-package com.schedule.data.remote.services
+package com.schedule.data.remote.services.implementation
 
 import com.schedule.data.remote.dtos.UserDto
 import retrofit2.http.GET

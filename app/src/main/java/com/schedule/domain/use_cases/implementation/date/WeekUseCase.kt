@@ -1,6 +1,6 @@
 package com.schedule.domain.use_cases.implementation.date
 
-import com.schedule.data.remote.services.date.IWeekService
+import com.schedule.data.remote.services.implementation.date.IWeekService
 import com.schedule.domain.model.date.Week
 import com.schedule.domain.repository.IRepository
 import com.schedule.domain.use_cases.IUseCase
