@@ -23,7 +23,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.schedule.ui.presentation.data_list.squad.view_model.SquadVM
 import com.schedule.ui.strings.DataStrings
@@ -42,7 +41,7 @@ fun GroupScreen(
     controller: NavController,
     snackbarHostState: SnackbarHostState,
     scope: CoroutineScope,
-    vm: SquadVM = hiltViewModel()
+    vm: SquadVM
 ) {
     val state = vm.data.collectAsState().value
     val modifier = Modifier.fillMaxSize()

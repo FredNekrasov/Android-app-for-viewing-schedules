@@ -23,7 +23,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.schedule.ui.presentation.data_list.room.audience_type.view_model.AudienceTypeVM
 import com.schedule.ui.strings.DataStrings
@@ -42,7 +41,7 @@ fun AudienceTypeScreen(
     controller: NavController,
     snackbarHostState: SnackbarHostState,
     scope: CoroutineScope,
-    vm: AudienceTypeVM = hiltViewModel()
+    vm: AudienceTypeVM
 ) {
     val state = vm.data.collectAsState().value
     val modifier = Modifier.fillMaxSize()

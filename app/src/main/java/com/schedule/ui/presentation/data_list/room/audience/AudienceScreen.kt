@@ -11,7 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarDuration.Short
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
@@ -23,12 +23,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.schedule.ui.presentation.data_list.room.audience.view_model.AudienceVM
 import com.schedule.ui.strings.DataStrings
 import com.schedule.ui.strings.Strings
-import com.schedule.ui.utils.ConnectionType
+import com.schedule.ui.utils.ConnectionType.SUCCESS
 import com.schedule.ui.utils.FredSearchBar
 import com.schedule.ui.utils.FredTopBar
 import com.schedule.ui.utils.navigation.information
@@ -42,7 +41,7 @@ fun AudienceScreen(
     controller: NavController,
     snackbarHostState: SnackbarHostState,
     scope: CoroutineScope,
-    vm: AudienceVM = hiltViewModel()
+    vm: AudienceVM
 ) {
     val state = vm.data.collectAsState().value
     val modifier = Modifier.fillMaxSize()
@@ -70,9 +69,9 @@ fun AudienceScreen(
             Spacer(Modifier.height(16.dp))
             LazyColumn(Modifier.fillMaxWidth()) {
                 when(state.first) {
-                    ConnectionType.SUCCESS -> {
+                    SUCCESS -> {
                         scope.launch {
-                            snackbarHostState.showSnackbar(information(state.first), Strings.successful, duration = SnackbarDuration.Short)
+                            snackbarHostState.showSnackbar(information(state.first), Strings.successful, duration = Short)
                         }
                         items(state.second) {
                             AudienceListItem(it)
@@ -80,7 +79,7 @@ fun AudienceScreen(
                         }
                     }
                     else -> scope.launch {
-                        snackbarHostState.showSnackbar(information(state.first), duration = SnackbarDuration.Short)
+                        snackbarHostState.showSnackbar(information(state.first), duration = Short)
                     }
                 }
             }
