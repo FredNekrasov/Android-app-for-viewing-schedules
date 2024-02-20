@@ -1,3 +1,5 @@
+package com.schedule.di
+
 import com.schedule.data.remote.dtos.PairDto
 import com.schedule.data.remote.dtos.SquadDto
 import com.schedule.data.remote.dtos.SubjectDto

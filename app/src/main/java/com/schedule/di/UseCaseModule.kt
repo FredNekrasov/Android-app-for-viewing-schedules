@@ -1,3 +1,5 @@
+package com.schedule.di
+
 import com.schedule.domain.model.PairEntity
 import com.schedule.domain.model.Squad
 import com.schedule.domain.model.Subject
