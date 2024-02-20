@@ -5,16 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.schedule.domain.model.date.Week
 import com.schedule.domain.use_cases.IUseCase
 import com.schedule.ui.utils.ConnectionType.LOADING
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class WeekVM @Inject constructor(private val useCase: IUseCase<Week>) : ViewModel() {
+class WeekVM(private val useCase: IUseCase<Week>) : ViewModel() {
     private var dataMSF = MutableStateFlow(LOADING to emptyList<Week>())
     val data = dataMSF.asStateFlow()
     init { getList() }

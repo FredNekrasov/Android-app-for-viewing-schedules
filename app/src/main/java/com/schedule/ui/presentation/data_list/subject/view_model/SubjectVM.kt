@@ -5,16 +5,13 @@ import androidx.lifecycle.viewModelScope
 import com.schedule.domain.model.Subject
 import com.schedule.domain.use_cases.IUseCase
 import com.schedule.ui.utils.ConnectionType.LOADING
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class SubjectVM @Inject constructor(private val useCase: IUseCase<Subject>) : ViewModel() {
+class SubjectVM(private val useCase: IUseCase<Subject>) : ViewModel() {
     private var dataMSF = MutableStateFlow(LOADING to emptyList<Subject>())
     val data = dataMSF.asStateFlow()
     init { getList() }
