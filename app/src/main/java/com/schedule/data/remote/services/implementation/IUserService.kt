@@ -5,6 +5,6 @@ import com.schedule.data.remote.services.IService
 import retrofit2.http.GET
 
 interface IUserService : IService<UserDto> {
-    @GET("/api/Users")
+    @GET("/api/User")
     override suspend fun getData(): List<UserDto>?
 }

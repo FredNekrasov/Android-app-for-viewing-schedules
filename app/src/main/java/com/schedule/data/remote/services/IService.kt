@@ -6,6 +6,6 @@ interface IService<T> {
     @GET
     suspend fun getData(): List<T>?
     companion object {
-        const val BaseUrl = "http://qwrty:5141"
+        const val BaseUrl = "http://192.168.1.231:5141"
     }
 }
