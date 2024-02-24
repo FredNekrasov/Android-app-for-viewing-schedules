@@ -36,14 +36,14 @@ fun getHeaderName(controller: NavController,str: String): String {
 }
 fun getNavItems(): Array<NavItem> {
     return arrayOf(
-        NavItem(DataStrings.groupTitle, ScreensRoute.Groups, Icons.Default.Group, Icons.Outlined.Group),
-        NavItem(DataStrings.subjectTitle, ScreensRoute.Subjects, Icons.Default.Subtitles, Icons.Outlined.Subtitles),
-        NavItem(DataStrings.audienceTypeTitle, ScreensRoute.AudienceTypes, Icons.Default.TypeSpecimen, Icons.Outlined.TypeSpecimen),
-        NavItem(DataStrings.audienceTitle, ScreensRoute.Audiences, Icons.Default.MeetingRoom, Icons.Outlined.MeetingRoom),
-        NavItem(DataStrings.teacherTitle, ScreensRoute.Teachers, Icons.Default.Person, Icons.Outlined.Person),
-        NavItem(DataStrings.semesterTitle, ScreensRoute.Semesters, Icons.Default.AccessTime, Icons.Outlined.AccessTime),
-        NavItem(DataStrings.weekTitle, ScreensRoute.Weeks, Icons.Default.NextWeek, Icons.Outlined.NextWeek),
-        NavItem(DataStrings.pairTitle, ScreensRoute.Pairs, Icons.Default.PlayLesson, Icons.Outlined.PlayLesson),
-        NavItem(DataStrings.dayTitle, ScreensRoute.Days, Icons.Default.Today, Icons.Outlined.Today),
+        NavItem(DataStrings.groupTitle, Groups, Icons.Default.Group, Icons.Outlined.Group),
+        NavItem(DataStrings.subjectTitle, Subjects, Icons.Default.Subtitles, Icons.Outlined.Subtitles),
+        NavItem(DataStrings.audienceTypeTitle, AudienceTypes, Icons.Default.TypeSpecimen, Icons.Outlined.TypeSpecimen),
+        NavItem(DataStrings.audienceTitle, Audiences, Icons.Default.MeetingRoom, Icons.Outlined.MeetingRoom),
+        NavItem(DataStrings.teacherTitle, Teachers, Icons.Default.Person, Icons.Outlined.Person),
+        NavItem(DataStrings.semesterTitle, Semesters, Icons.Default.AccessTime, Icons.Outlined.AccessTime),
+        NavItem(DataStrings.weekTitle, Weeks, Icons.Default.NextWeek, Icons.Outlined.NextWeek),
+        NavItem(DataStrings.pairTitle, Pairs, Icons.Default.PlayLesson, Icons.Outlined.PlayLesson),
+        NavItem(DataStrings.dayTitle, Days, Icons.Default.Today, Icons.Outlined.Today),
     )
 }
