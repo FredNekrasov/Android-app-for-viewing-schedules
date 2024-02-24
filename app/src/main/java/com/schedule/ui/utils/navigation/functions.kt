@@ -3,10 +3,12 @@ package com.schedule.ui.utils.navigation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+import androidx.navigation.NavController
 import com.schedule.ui.strings.*
 import com.schedule.ui.utils.ConnectionType
+import com.schedule.ui.utils.navigation.ScreensRoute.*
 
-fun information(type: ConnectionType): String {
+fun internetStateInfo(type: ConnectionType): String {
     return when (type) {
         ConnectionType.SUCCESS -> InternetStrings.success
         ConnectionType.NO_INTERNET -> InternetStrings.noInternet
@@ -15,6 +17,21 @@ fun information(type: ConnectionType): String {
         ConnectionType.UNKNOWN -> InternetStrings.unknown
         ConnectionType.CONNECTION_ERROR -> InternetStrings.connectionError
         ConnectionType.JSON_CONVERSION_ERROR -> InternetStrings.jsonConversionError
+    }
+}
+fun getHeaderName(controller: NavController,str: String): String {
+    return when (controller.currentDestination?.route) {
+        Groups.route -> DataStrings.groupTitle
+        Subjects.route -> DataStrings.subjectTitle
+        AudienceTypes.route -> DataStrings.audienceTypeTitle
+        Audiences.route -> DataStrings.audienceTitle
+        Teachers.route -> DataStrings.teacherTitle
+        Semesters.route -> DataStrings.semesterTitle
+        Weeks.route -> DataStrings.weekTitle
+        Pairs.route -> DataStrings.pairTitle
+        Days.route -> DataStrings.dayTitle
+        Profile.route -> DataStrings.profile
+        else -> str
     }
 }
 fun getNavItems(): Array<NavItem> {

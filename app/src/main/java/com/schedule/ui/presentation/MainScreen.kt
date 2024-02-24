@@ -30,9 +30,7 @@ fun MainScreen(array: Array<NavItem>) {
                             selectedItemIndex = index
                             scope.launch { drawerState.close() }
                         },Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
-                        icon = {
-                            Icon(if (index == selectedItemIndex) item.selectedIcon else item.unselectedIcon, item.title)
-                        },
+                        icon = { Icon(if (index == selectedItemIndex) item.selectedIcon else item.unselectedIcon, item.title) },
                         shape = MaterialTheme.shapes.medium
                     )
                 }
