@@ -8,9 +8,10 @@ import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import com.schedule.ui.presentation.data_list.date.semester.view_model.SemesterVM
 import com.schedule.ui.utils.FredSearchBar
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun SemesterScreen(vm: SemesterVM) {
+fun SemesterScreen(vm: SemesterVM = koinViewModel()) {
     val state = vm.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }

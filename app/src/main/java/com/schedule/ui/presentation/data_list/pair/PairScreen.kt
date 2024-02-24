@@ -8,9 +8,10 @@ import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import com.schedule.ui.presentation.data_list.pair.view_model.PairVM
 import com.schedule.ui.utils.FredSearchBar
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun PairScreen(vm: PairVM) {
+fun PairScreen(vm: PairVM = koinViewModel()) {
     val state = vm.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }
