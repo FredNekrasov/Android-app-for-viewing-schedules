@@ -13,6 +13,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val vmModule = module {
+    viewModel { UserVM(get()) }
     viewModel { TeacherVM(get()) }
     viewModel { SubjectVM(get()) }
     viewModel { SquadVM(get()) }
@@ -21,5 +22,4 @@ val vmModule = module {
     viewModel { SemesterVM(get()) }
     viewModel { WeekVM(get()) }
     viewModel { PairVM(get()) }
-    viewModel { UserVM(get()) }
 }

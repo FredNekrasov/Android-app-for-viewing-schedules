@@ -22,13 +22,13 @@ import com.schedule.domain.repository.IRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
+    single<IRepository<UserDto>> { UserRepository(get()) }
     single<IRepository<TeacherDto>> { TeacherRepository(get()) }
-    single<IRepository<SubjectDto>> { SubjectRepository(api = get()) }
+    single<IRepository<SubjectDto>> { SubjectRepository(get()) }
     single<IRepository<SquadDto>> { GroupRepository(get()) }
     single<IRepository<AudienceTypeDto>> { AudienceTypeRepository(get()) }
     single<IRepository<AudienceDto>> { AudienceRepository(get()) }
     single<IRepository<SemesterDto>> { SemesterRepository(get()) }
     single<IRepository<WeekDto>> { WeekRepository(get()) }
     single<IRepository<PairDto>> { PairRepository(get()) }
-    single<IRepository<UserDto>> { UserRepository(get()) }
 }

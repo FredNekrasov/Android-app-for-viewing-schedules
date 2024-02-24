@@ -22,6 +22,7 @@ import com.schedule.domain.use_cases.user.implementation.UserUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
+    factory<IUserUseCase> { UserUseCase(get()) }
     factory<IUseCase<Teacher>> { TeacherUseCase(get()) }
     factory<IUseCase<Subject>> { SubjectUseCase(get()) }
     factory<IUseCase<Squad>> { SquadUseCase(get()) }
@@ -30,5 +31,4 @@ val useCaseModule = module {
     factory<IUseCase<Semester>> { SemesterUseCase(get()) }
     factory<IUseCase<Week>> { WeekUseCase(get()) }
     factory<IUseCase<PairEntity>> { PairUseCase(get()) }
-    factory<IUserUseCase> { UserUseCase(get()) }
 }

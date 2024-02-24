@@ -58,6 +58,7 @@ class MainActivity : ComponentActivity() {
     private val array = getNavItems()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val userVM = getViewModel<UserVM>()
         val teacherVM = getViewModel<TeacherVM>()
         val subjectVM = getViewModel<SubjectVM>()
         val groupVM = getViewModel<SquadVM>()
@@ -66,7 +67,6 @@ class MainActivity : ComponentActivity() {
         val semesterVM = getViewModel<SemesterVM>()
         val weekVM = getViewModel<WeekVM>()
         val pairVM = getViewModel<PairVM>()
-        val userVM = getViewModel<UserVM>()
         setContent {
             ScheduleAppTheme {
                 Surface(Modifier.fillMaxSize(),color = MaterialTheme.colorScheme.background) {
@@ -99,14 +99,14 @@ class MainActivity : ComponentActivity() {
                         NavHost(controller, ScreensRoute.Authorization.route){
                             composable(ScreensRoute.Authorization.route){ Authorization(controller, snackbarHostState, scope, userVM) }
                             composable(ScreensRoute.Profile.route){ Profile({ scope.launch { drawerState.open() } }, userVM) }
+                            composable(ScreensRoute.Pairs.route){ PairScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, pairVM) }
                             composable(ScreensRoute.Teachers.route){ TeacherScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, teacherVM) }
                             composable(ScreensRoute.Subjects.route){ SubjectScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, subjectVM) }
+                            composable(ScreensRoute.Groups.route){ GroupScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, groupVM) }
                             composable(ScreensRoute.AudienceTypes.route){ AudienceTypeScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, audienceTypeVM) }
                             composable(ScreensRoute.Audiences.route){ AudienceScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, audienceVM) }
                             composable(ScreensRoute.Semesters.route){ SemesterScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, semesterVM) }
                             composable(ScreensRoute.Weeks.route){ WeekScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, weekVM) }
-                            composable(ScreensRoute.Groups.route){ GroupScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, groupVM) }
-                            composable(ScreensRoute.Pairs.route){ PairScreen({ scope.launch { drawerState.open() } }, controller, snackbarHostState, scope, pairVM) }
                         }
                     }
                 }
