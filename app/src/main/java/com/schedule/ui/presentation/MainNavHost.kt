@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.*
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.*
+import com.schedule.ui.presentation.data_list.date.schedule.ScheduleScreen
 import com.schedule.ui.presentation.data_list.date.semester.SemesterScreen
 import com.schedule.ui.presentation.data_list.date.week.WeekScreen
 import com.schedule.ui.presentation.data_list.pair.PairScreen
@@ -38,6 +39,7 @@ fun MainNavHost(
             composable(Audiences.route){ AudienceScreen() }
             composable(Semesters.route){ SemesterScreen() }
             composable(Weeks.route){ WeekScreen() }
+            composable(Days.route){ ScheduleScreen() }
         }
     }
 }
