@@ -11,7 +11,6 @@ import com.schedule.ui.presentation.data_list.teacher.view_model.TeacherVM
 import com.schedule.ui.presentation.data_list.user.view_model.UserVM
 import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
