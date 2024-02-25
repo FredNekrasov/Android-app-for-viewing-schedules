@@ -44,6 +44,6 @@ fun getNavItems(): Array<NavItem> {
         NavItem(DataStrings.semesterTitle, Semesters, Icons.Default.AccessTime, Icons.Outlined.AccessTime),
         NavItem(DataStrings.weekTitle, Weeks, Icons.Default.NextWeek, Icons.Outlined.NextWeek),
         NavItem(DataStrings.pairTitle, Pairs, Icons.Default.PlayLesson, Icons.Outlined.PlayLesson),
-        NavItem(DataStrings.dayTitle, Days, Icons.Default.Today, Icons.Outlined.Today),
+//        NavItem(DataStrings.dayTitle, Days, Icons.Default.Today, Icons.Outlined.Today),
     )
 }

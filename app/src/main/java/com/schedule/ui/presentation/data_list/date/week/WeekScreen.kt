@@ -7,12 +7,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import com.schedule.ui.presentation.data_list.date.week.view_model.WeekVM
+import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
 import com.schedule.ui.utils.FredSearchBar
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.qualifier.named
 
 @Composable
-fun WeekScreen(vm: WeekVM = koinViewModel()) {
-    val state = vm.data.collectAsState().value
+fun WeekScreen(weekVM: WeekVM = koinViewModel(qualifier = named(koinStr.weekEntity + koinStr.vm))) {
+    val state = weekVM.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }
     Column(Modifier.fillMaxSize(), Arrangement.Top, Alignment.CenterHorizontally) {
@@ -21,7 +23,7 @@ fun WeekScreen(vm: WeekVM = koinViewModel()) {
             searchItem,
             { searchItem = it },
             {
-                vm.getData(searchItem)
+                weekVM.getData(searchItem)
                 isActive = false
             },
             isActive,

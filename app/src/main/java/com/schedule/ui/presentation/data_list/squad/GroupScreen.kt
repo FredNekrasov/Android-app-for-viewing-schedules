@@ -7,12 +7,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import com.schedule.ui.presentation.data_list.squad.view_model.SquadVM
+import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
 import com.schedule.ui.utils.FredSearchBar
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.qualifier.named
 
 @Composable
-fun GroupScreen(vm: SquadVM = koinViewModel()) {
-    val state = vm.data.collectAsState().value
+fun GroupScreen(squadVM: SquadVM = koinViewModel(qualifier = named(koinStr.squadEntity + koinStr.vm))) {
+    val state = squadVM.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }
     Column(Modifier.fillMaxSize(), Arrangement.Top, Alignment.CenterHorizontally) {
@@ -21,7 +23,7 @@ fun GroupScreen(vm: SquadVM = koinViewModel()) {
             searchItem,
             { searchItem = it },
             {
-                vm.getData(searchItem)
+                squadVM.getData(searchItem)
                 isActive = false
             },
             isActive,

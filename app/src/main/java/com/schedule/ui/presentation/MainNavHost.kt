@@ -15,14 +15,16 @@ import com.schedule.ui.presentation.data_list.subject.SubjectScreen
 import com.schedule.ui.presentation.data_list.teacher.TeacherScreen
 import com.schedule.ui.presentation.data_list.user.Profile
 import com.schedule.ui.presentation.data_list.user.view_model.UserVM
+import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
 import com.schedule.ui.utils.navigation.ScreensRoute.*
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.qualifier.named
 
 @Composable
 fun MainNavHost(
     controller: NavHostController,
     modifier: Modifier,
-    userVM: UserVM = koinViewModel()
+    userVM: UserVM = koinViewModel(qualifier = named(koinStr.userEntity + koinStr.vm))
 ) {
     Column(modifier,Arrangement.Center,Alignment.CenterHorizontally) {
         NavHost(controller, Authorization.route){

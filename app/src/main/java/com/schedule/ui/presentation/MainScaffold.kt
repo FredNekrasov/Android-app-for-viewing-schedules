@@ -21,9 +21,14 @@ fun MainScaffold(controller: NavHostController, openDrawer: () -> Unit) {
     val modifier = Modifier.fillMaxSize()
     Scaffold(
         modifier,
-        topBar = { if(currentRoute != Authorization.route){ FredTopBar(getHeaderName(controller,appName),openDrawer) } },
+        topBar = { if(currentRoute != Authorization.route && currentRoute != null ){ FredTopBar(getHeaderName(controller,appName),openDrawer) } },
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        floatingActionButton = { if(currentRoute != Authorization.route && currentRoute != Profile.route) ToProfile(controller) },
+        floatingActionButton = {
+            when(currentRoute){
+                null, Authorization.route, Profile.route -> {}
+                else -> ToProfile(controller)
+            }
+        },
         floatingActionButtonPosition = FabPosition.End
     ) { padding ->
         MainNavHost(controller,modifier.padding(padding))

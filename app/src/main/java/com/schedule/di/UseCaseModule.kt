@@ -1,34 +1,44 @@
 package com.schedule.di
 
-import com.schedule.domain.model.PairEntity
-import com.schedule.domain.model.Squad
-import com.schedule.domain.model.Subject
-import com.schedule.domain.model.Teacher
-import com.schedule.domain.model.date.Semester
-import com.schedule.domain.model.date.Week
-import com.schedule.domain.model.room.Audience
-import com.schedule.domain.model.room.AudienceType
+import com.schedule.domain.model.*
+import com.schedule.domain.model.date.*
+import com.schedule.domain.model.room.*
 import com.schedule.domain.use_cases.IUseCase
-import com.schedule.domain.use_cases.implementation.PairUseCase
-import com.schedule.domain.use_cases.implementation.SquadUseCase
-import com.schedule.domain.use_cases.implementation.SubjectUseCase
-import com.schedule.domain.use_cases.implementation.TeacherUseCase
-import com.schedule.domain.use_cases.implementation.date.SemesterUseCase
-import com.schedule.domain.use_cases.implementation.date.WeekUseCase
-import com.schedule.domain.use_cases.implementation.room.AudienceTypeUseCase
-import com.schedule.domain.use_cases.implementation.room.AudienceUseCase
+import com.schedule.domain.use_cases.implementation.*
+import com.schedule.domain.use_cases.implementation.date.*
+import com.schedule.domain.use_cases.implementation.room.*
 import com.schedule.domain.use_cases.user.IUserUseCase
 import com.schedule.domain.use_cases.user.implementation.UserUseCase
+import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val useCaseModule = module {
-    factory<IUserUseCase> { UserUseCase(get()) }
-    factory<IUseCase<Teacher>> { TeacherUseCase(get()) }
-    factory<IUseCase<Subject>> { SubjectUseCase(get()) }
-    factory<IUseCase<Squad>> { SquadUseCase(get()) }
-    factory<IUseCase<AudienceType>> { AudienceTypeUseCase(get()) }
-    factory<IUseCase<Audience>> { AudienceUseCase(get()) }
-    factory<IUseCase<Semester>> { SemesterUseCase(get()) }
-    factory<IUseCase<Week>> { WeekUseCase(get()) }
-    factory<IUseCase<PairEntity>> { PairUseCase(get()) }
+    factory<IUserUseCase>(qualifier = named(koinStr.userEntity + koinStr.useCase)) {
+        UserUseCase(get(qualifier = named(koinStr.userEntity + koinStr.repository)))
+    }
+    factory<IUseCase<Teacher>>(qualifier = named(koinStr.teacherEntity + koinStr.useCase)) {
+        TeacherUseCase(get(qualifier = named(koinStr.teacherEntity + koinStr.repository)))
+    }
+    factory<IUseCase<Subject>>(qualifier = named(koinStr.subjectEntity + koinStr.useCase)) {
+        SubjectUseCase(get(qualifier = named(koinStr.subjectEntity + koinStr.repository)))
+    }
+    factory<IUseCase<Squad>>(qualifier = named(koinStr.squadEntity + koinStr.useCase)) {
+        SquadUseCase(get(qualifier = named(koinStr.squadEntity + koinStr.repository)))
+    }
+    factory<IUseCase<AudienceType>>(qualifier = named(koinStr.audienceTypeEntity + koinStr.useCase)) {
+        AudienceTypeUseCase(get(qualifier = named(koinStr.audienceTypeEntity + koinStr.repository)))
+    }
+    factory<IUseCase<Audience>>(qualifier = named(koinStr.audienceEntity + koinStr.useCase)) {
+        AudienceUseCase(get(qualifier = named(koinStr.audienceEntity + koinStr.repository)))
+    }
+    factory<IUseCase<Semester>>(qualifier = named(koinStr.semesterEntity + koinStr.useCase)) {
+        SemesterUseCase(get(qualifier = named(koinStr.semesterEntity + koinStr.repository)))
+    }
+    factory<IUseCase<Week>>(qualifier = named(koinStr.weekEntity + koinStr.useCase)) {
+        WeekUseCase(get(qualifier = named(koinStr.weekEntity + koinStr.repository)))
+    }
+    factory<IUseCase<PairEntity>>(qualifier = named(koinStr.pairEntity + koinStr.useCase)) {
+        PairUseCase(get(qualifier = named(koinStr.pairEntity + koinStr.repository)))
+    }
 }

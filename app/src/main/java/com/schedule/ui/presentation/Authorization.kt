@@ -14,18 +14,18 @@ import com.schedule.ui.utils.*
 import com.schedule.ui.utils.navigation.ScreensRoute.*
 
 @Composable
-fun Authorization(controller: NavController,viewModel: UserVM) {
+fun Authorization(controller: NavController,userVM: UserVM) {
     var userName by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
-    val state = viewModel.data.collectAsState()
+    val state = userVM.data.collectAsState()
     Column(Modifier.fillMaxSize(),Arrangement.Center,Alignment.CenterHorizontally) {
         FredTextTitle(Strings.authorization)
         Spacer(Modifier.height(64.dp))
         FredTextField(userName, { userName = it }, Strings.enterUN)
         Spacer(Modifier.height(8.dp))
-        FredOTF(password, { password = it }, Strings.enterPassword, KeyboardType.Password)
+        FredOTF(password, { password = it }, Strings.enterPassword, KeyboardType.NumberPassword)
         Spacer(Modifier.height(32.dp))
-        FredButton({ viewModel.getData(userName, password) }, Strings.logIn)
+        FredButton({ userVM.getData(userName,password) },Strings.logIn)
         if(state.value.first == SUCCESS) controller.navigate(Profile.route)
     }
 }

@@ -7,12 +7,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import com.schedule.ui.presentation.data_list.room.audience.view_model.AudienceVM
+import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
 import com.schedule.ui.utils.FredSearchBar
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.qualifier.named
 
 @Composable
-fun AudienceScreen(vm: AudienceVM = koinViewModel()) {
-    val state = vm.data.collectAsState().value
+fun AudienceScreen(audienceVM: AudienceVM = koinViewModel(qualifier = named(koinStr.audienceEntity + koinStr.vm))) {
+    val state = audienceVM.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }
     Column(Modifier.fillMaxSize(), Arrangement.Top, Alignment.CenterHorizontally) {
@@ -21,7 +23,7 @@ fun AudienceScreen(vm: AudienceVM = koinViewModel()) {
             searchItem,
             { searchItem = it },
             {
-                vm.getData(searchItem)
+                audienceVM.getData(searchItem)
                 isActive = false
             },
             isActive,

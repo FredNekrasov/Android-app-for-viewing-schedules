@@ -7,12 +7,14 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.*
 import androidx.compose.ui.unit.dp
 import com.schedule.ui.presentation.data_list.pair.view_model.PairVM
+import com.schedule.ui.strings.KoinDIQualifierStrings as koinStr
 import com.schedule.ui.utils.FredSearchBar
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.qualifier.named
 
 @Composable
-fun PairScreen(vm: PairVM = koinViewModel()) {
-    val state = vm.data.collectAsState().value
+fun PairScreen(pairVM: PairVM = koinViewModel(qualifier = named(koinStr.pairEntity + koinStr.vm))) {
+    val state = pairVM.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }
     Column(Modifier.fillMaxSize(), Arrangement.Top, Alignment.CenterHorizontally) {
@@ -21,16 +23,16 @@ fun PairScreen(vm: PairVM = koinViewModel()) {
             searchItem,
             { searchItem = it },
             {
-                vm.getData(searchItem)
+                pairVM.getData(searchItem)
                 isActive = false
             },
             isActive,
             { isActive = it }
         )
         Spacer(Modifier.height(16.dp))
-        LazyRow(Modifier.fillMaxWidth()) {
+        LazyColumn(Modifier.fillMaxWidth()) {
             items(state.second) {
-                PairListItem(it)
+                PairListItem(it, Modifier.fillMaxWidth())
                 Spacer(Modifier.height(8.dp))
             }
         }

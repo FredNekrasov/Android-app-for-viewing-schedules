@@ -18,7 +18,7 @@ fun CardView(
     mainColor: Color,
     secondaryColor: Color,
     cornerRadius: Dp = 10.dp,
-    cutCornerSize: Dp = 10.dp
+    cutCornerSize: Dp = 0.dp
 ) {
     Canvas(modifier){
         val clipPath = Path().apply {
