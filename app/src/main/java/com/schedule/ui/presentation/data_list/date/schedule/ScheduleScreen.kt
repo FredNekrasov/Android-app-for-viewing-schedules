@@ -13,8 +13,8 @@ import org.koin.androidx.compose.koinViewModel
 import org.koin.core.qualifier.named
 
 @Composable
-fun ScheduleScreen(vm: ScheduleVM = koinViewModel(qualifier = named(koinStr.scheduleEntity + koinStr.vm))) {
-    val state = vm.data.collectAsState().value
+fun ScheduleScreen(scheduleVM: ScheduleVM = koinViewModel(qualifier = named(koinStr.scheduleEntity + koinStr.vm))) {
+    val state = scheduleVM.data.collectAsState().value
     var searchItem by rememberSaveable { mutableStateOf("") }
     var isActive by rememberSaveable { mutableStateOf(false) }
     Column(Modifier.fillMaxSize(),Arrangement.Top,Alignment.CenterHorizontally) {
@@ -23,7 +23,7 @@ fun ScheduleScreen(vm: ScheduleVM = koinViewModel(qualifier = named(koinStr.sche
             searchItem,
             { searchItem = it },
             {
-                vm.getData(searchItem)
+                scheduleVM.getData(searchItem)
                 isActive = false
             },
             isActive,
