@@ -35,4 +35,7 @@ val serviceModule = module {
     single(qualifier = named(koinStr.pairEntity + koinStr.service),createdAtStart = true) {
         IUserService.build().create(IPairService::class.java)
     }
+    single(qualifier = named(koinStr.scheduleEntity + koinStr.service),createdAtStart = true) {
+        IUserService.build().create(ScheduleService::class.java)
+    }
 }

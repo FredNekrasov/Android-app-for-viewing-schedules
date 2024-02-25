@@ -15,4 +15,5 @@ object KoinDIQualifierStrings {
     const val semesterEntity = "Semester"
     const val weekEntity = "Week"
     const val pairEntity = "Pair"
+    const val scheduleEntity = "Schedule"
 }

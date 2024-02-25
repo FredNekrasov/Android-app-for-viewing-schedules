@@ -5,6 +5,7 @@ import com.schedule.data.remote.dtos.SquadDto
 import com.schedule.data.remote.dtos.SubjectDto
 import com.schedule.data.remote.dtos.TeacherDto
 import com.schedule.data.remote.dtos.UserDto
+import com.schedule.data.remote.dtos.date.ScheduleDto
 import com.schedule.data.remote.dtos.date.SemesterDto
 import com.schedule.data.remote.dtos.date.WeekDto
 import com.schedule.data.remote.dtos.room.AudienceDto
@@ -14,6 +15,7 @@ import com.schedule.data.repositories.PairRepository
 import com.schedule.data.repositories.SubjectRepository
 import com.schedule.data.repositories.TeacherRepository
 import com.schedule.data.repositories.UserRepository
+import com.schedule.data.repositories.date.ScheduleRepository
 import com.schedule.data.repositories.date.SemesterRepository
 import com.schedule.data.repositories.date.WeekRepository
 import com.schedule.data.repositories.room.AudienceRepository
@@ -50,5 +52,8 @@ val repositoryModule = module {
     }
     single<IRepository<PairDto>>(qualifier = named(koinStr.pairEntity + koinStr.repository)) {
         PairRepository(get(qualifier = named(koinStr.pairEntity + koinStr.service)))
+    }
+    single<IRepository<ScheduleDto>>(qualifier = named(koinStr.scheduleEntity + koinStr.repository)) {
+        ScheduleRepository(get(qualifier = named(koinStr.scheduleEntity + koinStr.service)))
     }
 }

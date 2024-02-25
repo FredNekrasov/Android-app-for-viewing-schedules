@@ -41,4 +41,7 @@ val useCaseModule = module {
     factory<IUseCase<PairEntity>>(qualifier = named(koinStr.pairEntity + koinStr.useCase)) {
         PairUseCase(get(qualifier = named(koinStr.pairEntity + koinStr.repository)))
     }
+    factory<IUseCase<Schedule>>(qualifier = named(koinStr.scheduleEntity + koinStr.useCase)) {
+        ScheduleUseCase(get(qualifier = named(koinStr.scheduleEntity + koinStr.repository)))
+    }
 }
