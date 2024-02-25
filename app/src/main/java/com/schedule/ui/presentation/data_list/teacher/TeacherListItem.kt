@@ -15,13 +15,13 @@ fun TeacherListItem(entity: Teacher, modifier: Modifier = Modifier) {
     Box(modifier) {
         CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.outline, MaterialTheme.colorScheme.outlineVariant)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text("${entity.surname} ${entity.name} ${entity.patronymic}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${entity.surname} ${entity.name} ${entity.patronymic}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.outlineVariant, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
-            Text("${DataStrings.teacherName}: ${entity.name}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.teacherName}: ${entity.name}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.outlineVariant, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.teacherSurname}: ${entity.surname}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.teacherSurname}: ${entity.surname}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.outlineVariant, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.teacherPatronymic}: ${entity.patronymic}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.teacherPatronymic}: ${entity.patronymic}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.outlineVariant, overflow = TextOverflow.Ellipsis)
         }
     }
 }

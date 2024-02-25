@@ -13,15 +13,15 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun AudienceListItem(entity: Audience, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.outline, MaterialTheme.colorScheme.outlineVariant)
+        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.onPrimary)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text("${DataStrings.audienceNumber}: ${entity.audienceNumber}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.audienceNumber}: ${entity.audienceNumber}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
-            Text("${DataStrings.audienceType}: ${entity.audienceType}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.audienceType}: ${entity.audienceType}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.seatsNumber}: ${entity.seatsNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.seatsNumber}: ${entity.seatsNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.seatsForStudents}: ${entity.studentNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.seatsForStudents}: ${entity.studentNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
         }
     }
 }

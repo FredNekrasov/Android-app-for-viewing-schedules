@@ -17,11 +17,11 @@ fun UserInfo(user: User?, modifier: Modifier) {
         Box(modifier) {
             CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.tertiary, MaterialTheme.colorScheme.onTertiary)
             Column(Modifier.fillMaxSize().padding(16.dp).padding(end = 32.dp)) {
-                Text("${DataStrings.userNameT}: ${user.userName}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.userNameT}: ${user.userName}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onTertiary, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(8.dp))
-                Text("${DataStrings.userPassword}: ${user.password}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.userPassword}: ${user.password}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onTertiary, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(8.dp))
-                Text("${DataStrings.userEmail}: ${user.email}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.userEmail}: ${user.email}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onTertiary, overflow = TextOverflow.Ellipsis)
             }
         }
     }
