@@ -12,16 +12,16 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun PairListItem(entity: PairEntity, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.onPrimaryContainer, MaterialTheme.colorScheme.secondary)
+        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.onSurface, MaterialTheme.colorScheme.inverseOnSurface)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text(entity.subject, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.secondary, overflow = TextOverflow.Ellipsis)
+            Text(entity.subject, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.inverseOnSurface, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
             Row(Modifier.fillMaxWidth(), Arrangement.SpaceAround, Alignment.CenterVertically) {
-                Text(entity.group, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
-                Text(entity.audience, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.secondaryContainer, overflow = TextOverflow.Ellipsis)
+                Text(entity.group, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.inverseOnSurface, overflow = TextOverflow.Ellipsis)
+                Text(entity.audience, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.inverseOnSurface, overflow = TextOverflow.Ellipsis)
             }
             Spacer(Modifier.height(8.dp))
-            Text(entity.teacher, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondaryContainer, overflow = TextOverflow.Ellipsis)
+            Text(entity.teacher, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.inverseOnSurface, overflow = TextOverflow.Ellipsis)
         }
     }
 }
