@@ -1,5 +1,6 @@
 package com.schedule.di
 
+import com.schedule.ui.presentation.data_list.date.schedule.view_model.ScheduleVM
 import com.schedule.ui.presentation.data_list.date.semester.view_model.SemesterVM
 import com.schedule.ui.presentation.data_list.date.week.view_model.WeekVM
 import com.schedule.ui.presentation.data_list.pair.view_model.PairVM
@@ -15,13 +16,34 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val vmModule = module {
-    viewModel(qualifier = named(koinStr.userEntity + koinStr.vm)) { UserVM(get(qualifier = named(koinStr.userEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.teacherEntity + koinStr.vm)) { TeacherVM(get(qualifier = named(koinStr.teacherEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.subjectEntity + koinStr.vm)) { SubjectVM(get(qualifier = named(koinStr.subjectEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.squadEntity + koinStr.vm)) { SquadVM(get(qualifier = named(koinStr.squadEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.audienceTypeEntity + koinStr.vm)) { AudienceTypeVM(get(qualifier = named(koinStr.audienceTypeEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.audienceEntity + koinStr.vm)) { AudienceVM(get(qualifier = named(koinStr.audienceEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.semesterEntity + koinStr.vm)) { SemesterVM(get(qualifier = named(koinStr.semesterEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.weekEntity + koinStr.vm)) { WeekVM(get(qualifier = named(koinStr.weekEntity + koinStr.useCase))) }
-    viewModel(qualifier = named(koinStr.pairEntity + koinStr.vm)) { PairVM(get(qualifier = named(koinStr.pairEntity + koinStr.useCase))) }
+    viewModel(qualifier = named(koinStr.userEntity + koinStr.vm)) {
+        UserVM(get(qualifier = named(koinStr.userEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.teacherEntity + koinStr.vm)) {
+        TeacherVM(get(qualifier = named(koinStr.teacherEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.subjectEntity + koinStr.vm)) {
+        SubjectVM(get(qualifier = named(koinStr.subjectEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.squadEntity + koinStr.vm)) {
+        SquadVM(get(qualifier = named(koinStr.squadEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.audienceTypeEntity + koinStr.vm)) {
+        AudienceTypeVM(get(qualifier = named(koinStr.audienceTypeEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.audienceEntity + koinStr.vm)) {
+        AudienceVM(get(qualifier = named(koinStr.audienceEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.semesterEntity + koinStr.vm)) {
+        SemesterVM(get(qualifier = named(koinStr.semesterEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.weekEntity + koinStr.vm)) {
+        WeekVM(get(qualifier = named(koinStr.weekEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.pairEntity + koinStr.vm)) {
+        PairVM(get(qualifier = named(koinStr.pairEntity + koinStr.useCase)))
+    }
+    viewModel(qualifier = named(koinStr.scheduleEntity + koinStr.vm)) {
+        ScheduleVM(get(qualifier = named(koinStr.scheduleEntity + koinStr.useCase)))
+    }
 }
