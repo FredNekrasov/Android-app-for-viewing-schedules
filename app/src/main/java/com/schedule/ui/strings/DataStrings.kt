@@ -49,4 +49,7 @@ object DataStrings {
 
     //week
     const val weekNumber = "Week Number"
+
+    //day
+    const val DAY_OF_WEEK = "Day of Week"
 }

@@ -16,14 +16,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.schedule.domain.model.date.Schedule
 import com.schedule.ui.presentation.data_list.pair.PairListItem
+import com.schedule.ui.strings.DataStrings
 
 @Composable
 fun ScheduleListItem(entity: Schedule, modifier: Modifier = Modifier) {
     Box(modifier) {
         Column(modifier,Arrangement.Center,Alignment.CenterHorizontally) {
-            Text(entity.dayOfWeek,Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.DAY_OF_WEEK} ${entity.dayOfWeek}",Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text(entity.week.toString(),Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.weekNumber} ${entity.week}",Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
             entity.pair1?.let { PairListItem(it,modifier) }
             Spacer(Modifier.height(8.dp))

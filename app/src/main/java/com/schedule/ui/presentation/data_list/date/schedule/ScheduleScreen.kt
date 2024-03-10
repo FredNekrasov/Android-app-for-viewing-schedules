@@ -30,9 +30,9 @@ fun ScheduleScreen(scheduleVM: ScheduleVM = koinViewModel(qualifier = named(koin
             { isActive = it }
         )
         Spacer(Modifier.height(16.dp))
-        LazyRow(Modifier.fillMaxSize()) {
+        LazyColumn(Modifier.fillMaxSize()) {
             items(state.second) {
-                ScheduleListItem(it)
+                ScheduleListItem(it,Modifier.fillMaxWidth())
                 Spacer(Modifier.height(8.dp))
             }
         }
