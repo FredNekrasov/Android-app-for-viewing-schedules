@@ -9,5 +9,4 @@ object InternetStrings {
     const val connectionError = "$error: There is no connection to the server"
     const val noInternet = "$error: No internet connection"
     const val jsonConversionError = "Json conversion error"
-    const val locationError = "Couldn't retrieve location. Make sure to grant permission and enable GPS."
 }

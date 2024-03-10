@@ -16,12 +16,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.schedule.domain.model.date.Schedule
 import com.schedule.ui.presentation.data_list.pair.PairListItem
-import com.schedule.ui.utils.special_views.CardView
 
 @Composable
 fun ScheduleListItem(entity: Schedule, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(),MaterialTheme.colorScheme.primary,MaterialTheme.colorScheme.onPrimary)
         Column(modifier,Arrangement.Center,Alignment.CenterHorizontally) {
             Text(entity.dayOfWeek,Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
