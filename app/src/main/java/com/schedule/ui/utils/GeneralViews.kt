@@ -3,20 +3,9 @@ package com.schedule.ui.utils
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.SearchBar
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -24,10 +13,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardType
 import com.schedule.ui.strings.Strings
 
-@Composable
-fun FredOutlineButton(click: () -> Unit, inf: String, modifier: Modifier = Modifier) {
-    OutlinedButton(click, modifier) { Text(inf, fontFamily = FontFamily.Serif) }
-}
 @Composable
 fun FredButton(click: () -> Unit, inf: String, modifier: Modifier = Modifier) {
     Button(click, modifier) { Text(inf, fontFamily = FontFamily.Serif) }
@@ -85,7 +70,7 @@ fun FredSearchBar(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FredTopBar(header: String, openDrawer: () -> Unit) {
-    TopAppBar({ Text(header) }, Modifier.fillMaxWidth(), { FredIconButton(openDrawer, Icons.Default.List, Strings.openDrawer) })
+    TopAppBar({ Text(header) }, Modifier.fillMaxWidth(), { FredIconButton(openDrawer, Icons.Default.Menu, Strings.openDrawer) })
 }
 @Composable
 fun FredTextTitle(title: String) {
