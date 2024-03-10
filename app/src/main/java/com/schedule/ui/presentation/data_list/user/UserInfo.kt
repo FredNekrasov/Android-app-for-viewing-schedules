@@ -15,13 +15,13 @@ import com.schedule.ui.utils.special_views.CardView
 fun UserInfo(user: User?, modifier: Modifier) {
     if (user != null) {
         Box(modifier) {
-            CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.tertiary, MaterialTheme.colorScheme.onTertiary)
+            CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.onPrimary)
             Column(Modifier.fillMaxSize().padding(16.dp).padding(end = 32.dp)) {
-                Text("${DataStrings.userNameT}: ${user.userName}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onTertiary, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.userNameT}: ${user.userName}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(8.dp))
-                Text("${DataStrings.userPassword}: ${user.password}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onTertiary, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.userPassword}: ${user.password}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.height(8.dp))
-                Text("${DataStrings.userEmail}: ${user.email}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onTertiary, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.userEmail}: ${user.email}", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             }
         }
     }

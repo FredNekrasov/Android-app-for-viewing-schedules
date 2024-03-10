@@ -12,9 +12,9 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun SemesterListItem(entity: Semester, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.inversePrimary, MaterialTheme.colorScheme.onSecondary)
+        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.onPrimary)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text("${DataStrings.semesterNumber}: ${entity.semesterNumber} ${entity.year}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.semesterNumber}: ${entity.semesterNumber} ${entity.year}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
         }
     }
 }

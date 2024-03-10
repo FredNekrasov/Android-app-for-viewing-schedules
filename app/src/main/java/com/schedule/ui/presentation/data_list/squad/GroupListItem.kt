@@ -13,13 +13,13 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun GroupListItem(entity: Squad, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.onBackground, MaterialTheme.colorScheme.background)
+        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.onPrimary)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text("${DataStrings.shortGroupNumber}: ${entity.shortGroupNumber}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.background, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.shortGroupNumber}: ${entity.shortGroupNumber}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
-            Text("${DataStrings.groupNumber}: ${entity.groupNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.background, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.groupNumber}: ${entity.groupNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.numberOfStudents}: ${entity.studentNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.background, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.numberOfStudents}: ${entity.studentNumber}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
         }
     }
 }

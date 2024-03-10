@@ -21,11 +21,11 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun ScheduleListItem(entity: Schedule, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(),MaterialTheme.colorScheme.inverseSurface,MaterialTheme.colorScheme.onSurfaceVariant)
-        Column(Modifier.fillMaxWidth(),Arrangement.Center,Alignment.CenterHorizontally) {
-            Text(entity.dayOfWeek,Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.onSurfaceVariant,overflow = TextOverflow.Ellipsis)
+        CardView(Modifier.matchParentSize(),MaterialTheme.colorScheme.primary,MaterialTheme.colorScheme.onPrimary)
+        Column(modifier,Arrangement.Center,Alignment.CenterHorizontally) {
+            Text(entity.dayOfWeek,Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text(entity.week.toString(),Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.onSurfaceVariant,overflow = TextOverflow.Ellipsis)
+            Text(entity.week.toString(),Modifier.fillMaxWidth(),style = MaterialTheme.typography.titleLarge,textAlign = TextAlign.Center,color = MaterialTheme.colorScheme.primary,overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
             entity.pair1?.let { PairListItem(it,modifier) }
             Spacer(Modifier.height(8.dp))

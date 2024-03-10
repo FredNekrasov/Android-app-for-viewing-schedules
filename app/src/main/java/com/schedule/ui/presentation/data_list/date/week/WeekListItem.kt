@@ -13,11 +13,11 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun WeekListItem(entity: Week, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.secondary, MaterialTheme.colorScheme.onSecondary)
+        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.onPrimary)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text("${DataStrings.weekNumber}: ${entity.weekNumber}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.weekNumber}: ${entity.weekNumber}", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
-            Text("${DataStrings.semesterNumber}: ${entity.semester}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSecondary, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.semesterNumber}: ${entity.semester}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
         }
     }
 }

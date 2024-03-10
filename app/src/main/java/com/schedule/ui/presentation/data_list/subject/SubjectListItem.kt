@@ -13,21 +13,21 @@ import com.schedule.ui.utils.special_views.CardView
 @Composable
 fun SubjectListItem(entity: Subject, modifier: Modifier = Modifier) {
     Box(modifier) {
-        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.error, MaterialTheme.colorScheme.onError)
+        CardView(Modifier.matchParentSize(), MaterialTheme.colorScheme.primary, MaterialTheme.colorScheme.onPrimary)
         Column(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterHorizontally) {
-            Text(entity.subjectName, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text(entity.subjectName, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(16.dp))
             Row(Modifier.fillMaxWidth(), Arrangement.Center, Alignment.CenterVertically) {
-                Text("${DataStrings.lectureHours}: ${entity.lectureHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.lectureHours}: ${entity.lectureHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
                 Spacer(Modifier.width(8.dp))
-                Text("${DataStrings.practiceHours}: ${entity.practiceHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+                Text("${DataStrings.practiceHours}: ${entity.practiceHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             }
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.consultationHours}: ${entity.consultationHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.consultationHours}: ${entity.consultationHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.totalHours}: ${entity.totalHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.totalHours}: ${entity.totalHours}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
             Spacer(Modifier.height(8.dp))
-            Text("${DataStrings.typeOfCertificate}: ${entity.typeOfCertification}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onError, overflow = TextOverflow.Ellipsis)
+            Text("${DataStrings.typeOfCertificate}: ${entity.typeOfCertification}", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onPrimary, overflow = TextOverflow.Ellipsis)
         }
     }
 }
