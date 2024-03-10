@@ -47,15 +47,13 @@ android {
 }
 
 dependencies {
-    runtimeOnly(libs.koin.core)
+    implementation(libs.koin.core)
     implementation(libs.koin.android)
-    runtimeOnly(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.compose)
     implementation(libs.koin.androidx.compose.navigation)
 
     implementation(libs.navigation.compose)
     implementation(libs.androidx.compose.material.icons.extended)
-    implementation(libs.androidx.compose.material.icons.extended)
-    implementation(libs.play.services.location)
 
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
