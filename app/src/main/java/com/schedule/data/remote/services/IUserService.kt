@@ -9,7 +9,7 @@ interface IUserService {
     @GET("/api/User")
     suspend fun getData(): List<UserDto>?
     companion object {
-        private const val BaseUrl = "http://localhost:5141"
-        fun build(): Retrofit = Retrofit.Builder().baseUrl(BaseUrl).addConverterFactory(MoshiConverterFactory.create()).build()
+        private const val BASE_URL = "http://localhost:5141"
+        fun build(): Retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(MoshiConverterFactory.create()).build()
     }
 }
