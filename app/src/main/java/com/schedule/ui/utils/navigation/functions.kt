@@ -42,7 +42,7 @@ fun getNavItems(): Array<NavItem> {
         NavItem(DataStrings.audienceTitle, Audiences, Icons.Default.MeetingRoom, Icons.Outlined.MeetingRoom),
         NavItem(DataStrings.teacherTitle, Teachers, Icons.Default.Person, Icons.Outlined.Person),
         NavItem(DataStrings.semesterTitle, Semesters, Icons.Default.AccessTime, Icons.Outlined.AccessTime),
-        NavItem(DataStrings.weekTitle, Weeks, Icons.Default.NextWeek, Icons.Outlined.NextWeek),
+        NavItem(DataStrings.weekTitle, Weeks, Icons.Default.CalendarViewWeek, Icons.Outlined.CalendarViewWeek),
         NavItem(DataStrings.pairTitle, Pairs, Icons.Default.PlayLesson, Icons.Outlined.PlayLesson),
         NavItem(DataStrings.dayTitle, Days, Icons.Default.Today, Icons.Outlined.Today),
     )
